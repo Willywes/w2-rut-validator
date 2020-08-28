@@ -19,9 +19,16 @@ RutValidator.validate(rut) // true or false
 ```
 RutValidator.format('111111111') // return 11.111.111-1
 ```
+
 ##### UnFormat
 ```
 RutValidator.unformat('11.111.111-1') // return 111111111
+```
+
+##### IsValid
+Validate Regex `[^0-9Kk]` and `999.999.999-9` max length
+```
+RutValidator.isValid(rut) // return true or false
 ```
 
 
@@ -34,13 +41,17 @@ RutValidator.validate('11.111.111-1') // return true
 RutValidator.validate('111111112') // return false
 RutValidator.validate('11.111.111-2') // return false
 ```
-##### Format and validate Validate
+
+##### Format and Validate
 ```
-let rut = 111111111
+let rut = '111111111' // or 111111111
 RutValidator.validate(RutValidator.validate(rut)) // return true
 
-let rut = 111111112
+let rut = '111111112' // or 111111112
 RutValidator.validate(RutValidator.validate(rut)) // return false
+
+let rut = 'ASD-F'
+RutValidator.isValid(rut) // return false
 ```
 
 ### React Example
@@ -54,13 +65,15 @@ const RegisterForm = () => {
   const [rut, setRut] = useState('');
 
   const RutFormat = e => {
-    setRut(RutValidator.format(e.target.value))
+    if(RutValidator.isValid(e.target.value)){
+      setRut(RutValidator.format(e.target.value))
+    }
   }
    
   const RutValidate = e => {
     if(!RutValidator.validate(e.target.value)){
-        setRut('')
         alert('El RUT ingresado no es correcto, intentalo denuevo.');
+        setRut('')
         e.target.focus()
     }
   }
@@ -80,6 +93,5 @@ const RegisterForm = () => {
 };
 
 export default RegisterForm;
-
 ```
 

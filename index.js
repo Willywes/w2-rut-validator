@@ -12,7 +12,20 @@ class RutValidator {
             const unformatRut = this.unformat(current);
             const cleanRut = unformatRut.substring(0, unformatRut.length - 1);
 
-            let rutNumberFormat = new Intl.NumberFormat('de-DE').format(cleanRut)
+            // let rutNumberFormat = new Intl.NumberFormat('de-DE').format(cleanRut)
+
+            let rutNumberFormat = "";
+
+            let i = 0;
+            let j = 1;
+
+            for (i = cleanRut.length - 1; i >= 0; i--) {
+                rutNumberFormat = cleanRut.charAt(i) + rutNumberFormat;
+                if (j % 3 == 0 && j <= cleanRut.length - 1 ) {
+                    rutNumberFormat = "." + rutNumberFormat;
+                }
+                j++;
+            }
 
             let dv = unformatRut.substring(unformatRut.length - 1);
             rutNumberFormat = rutNumberFormat + "-" + dv;
@@ -52,6 +65,11 @@ class RutValidator {
         dv = (dv == 0) ? 11 : dv;
 
         return dvAwait == dv;
+    }
+
+    isValid(rut){
+        let clean = (rut).replace(/[^0-9Kk]/g, "")
+        return clean.length < 10;
     }
 
 }
