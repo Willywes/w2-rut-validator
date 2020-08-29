@@ -1,14 +1,26 @@
 {
   "name": "w2-rut-validator",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Validador y formateador de rut chilenos",
-  "main": "index.js",
   "keywords": [
     "rut",
     "rut chileno",
     "validar rut",
-    "formatear rut"
+    "formatear rut",
+    "run",
+    "verificar",
+    "verificador",
+    "cedula",
+    "chile"
   ],
-  "author": "Willywes",
-  "license": "MIT"
+  "author": {
+    "name": "Alejandro Isla",
+    "email": "alejandro.isla.c@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Willywes/w2-rut-validator"
+  },
+  "main": "index.js"
 }
