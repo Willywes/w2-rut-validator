@@ -11,23 +11,23 @@
 `import { RutValidator } from "w2-rut-validator"`
 
 ##### Validate
-```
+```js
 RutValidator.validate(rut) // true or false
 ```
 
 ##### Format
-```
+```js
 RutValidator.format('111111111') // return 11.111.111-1
 ```
 
 ##### UnFormat
-```
+```js
 RutValidator.unformat('11.111.111-1') // return 111111111
 ```
 
 ##### IsValid
 Validate Regex `[^0-9Kk]` and `999.999.999-9` max length
-```
+```js
 RutValidator.isValid(rut) // return true or false
 ```
 
@@ -35,7 +35,7 @@ RutValidator.isValid(rut) // return true or false
 ### Basic Example
 
 ##### Validate
-```
+```js
 RutValidator.validate('111111111') // return true
 RutValidator.validate('11.111.111-1') // return true
 RutValidator.validate('111111112') // return false
@@ -43,7 +43,7 @@ RutValidator.validate('11.111.111-2') // return false
 ```
 
 ##### Format and Validate
-```
+```js
 let rut = '111111111' // or 111111111
 RutValidator.validate(RutValidator.validate(rut)) // return true
 
@@ -56,7 +56,7 @@ RutValidator.isValid(rut) // return false
 
 ### React Example
 
-```
+```jsx
 import React, { useState } from "react";
 import { RutValidator } from "w2-rut-validator"
 
