@@ -21,7 +21,7 @@ class RutValidator {
 
             for (i = cleanRut.length - 1; i >= 0; i--) {
                 rutNumberFormat = cleanRut.charAt(i) + rutNumberFormat;
-                if (j % 3 == 0 && j <= cleanRut.length - 1 ) {
+                if (j % 3 == 0 && j <= cleanRut.length - 1) {
                     rutNumberFormat = "." + rutNumberFormat;
                 }
                 j++;
@@ -67,11 +67,32 @@ class RutValidator {
         return dvAwait == dv;
     }
 
-    isValid(rut){
-        let clean = (rut).replace(/[^0-9Kk]/g, "")
+    isValid(rut) {
+        let clean = (rut).replace(/[^0-9Kk]/g, "");
         return clean.length < 10;
     }
 
+    getDv(rut) {
+        const cleanRut = this.unformat(rut);
+        const reverse = cleanRut.split("").reverse();
+        const multiplier = [2, 3, 4, 5, 6, 7, 2, 3, 4];
+        let plus = 0;
+
+        reverse.map((dig, i) => {
+            plus += (dig * multiplier[i])
+        });
+
+        const op = parseInt((((plus / 11) + "").split("."))[0]) * 11;
+        let result = plus - op;
+        switch (11 - result) {
+            case 11:
+                return "0";
+            case 10:
+                return "K";
+            default:
+                return (11 - result).toString()
+        }
+    }
 }
 
 

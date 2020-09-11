@@ -1,6 +1,6 @@
 {
   "name": "w2-rut-validator",
-  "version": "1.2.2",
+  "version": "1.3.2",
   "description": "Validador y formateador de rut chilenos",
   "keywords": [
     "rut",
@@ -11,7 +11,10 @@
     "verificar",
     "verificador",
     "cedula",
-    "chile"
+    "chile",
+    "chileno",
+    "rut chile",
+    "rut chileno"
   ],
   "author": {
     "name": "Alejandro Isla",

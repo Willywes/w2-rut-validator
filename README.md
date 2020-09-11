@@ -25,6 +25,11 @@ RutValidator.format('111111111') // return 11.111.111-1
 RutValidator.unformat('11.111.111-1') // return 111111111
 ```
 
+##### Get Dv
+```js
+RutValidator.getDv(rut) // return check digit
+```
+
 ##### IsValid
 Validate Regex `[^0-9Kk]` and `999.999.999-9` max length
 ```js
@@ -42,13 +47,21 @@ RutValidator.validate('111111112') // return false
 RutValidator.validate('11.111.111-2') // return false
 ```
 
+##### GetDv
+```js
+RutValidator.getDv('11111111') // return 1
+RutValidator.getDv('11.111.111') // return 1
+RutValidator.getDv('22222222') // return 2*
+RutValidator.getDv('22.222.222') // return 2
+```
+
 ##### Format and Validate
 ```js
 let rut = '111111111' // or 111111111
-RutValidator.validate(RutValidator.validate(rut)) // return true
+RutValidator.validate(RutValidator.format(rut)) // return true
 
 let rut = '111111112' // or 111111112
-RutValidator.validate(RutValidator.validate(rut)) // return false
+RutValidator.validate(RutValidator.format(rut)) // return false
 
 let rut = 'ASD-F'
 RutValidator.isValid(rut) // return false
